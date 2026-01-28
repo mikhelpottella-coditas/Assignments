@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class CompressString {
     public static void main(String[] args) {
+
+//        Compress a string in the below format
         System.out.println(compress("helloeeoo"));
         System.out.println(compress("mikeyyyyy"));
 
