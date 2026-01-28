@@ -2,6 +2,8 @@ package assignments;
 
 public class TaxCalculator {
     public static void main(String[] args) {
+//        Accept salary from user along with choice to calculate tax using Old Tax Regime or New
+//Tax Regime and calculate the tax for the given salary.
         System.out.println(tax(500000, "new"));
         System.out.println(tax(1000000, "old"));
         System.out.println(tax(13043000, "old"));
