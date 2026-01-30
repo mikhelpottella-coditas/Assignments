@@ -1,6 +1,6 @@
 package assignments.fileHandlingProblems;
 
-
+// problem statement: Count how many times lowercase vowels occurred in a String by reading a .txt file.
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
