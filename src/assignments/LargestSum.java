@@ -2,6 +2,8 @@ package assignments;
 
 public class LargestSum {
     public static void main(String[] args) {
+//        Given an integer array nums, find the subarray with the largest sum,
+//            and return its sum
         System.out.println(maxSum(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, 4));
     }
 
