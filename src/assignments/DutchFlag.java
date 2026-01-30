@@ -3,6 +3,9 @@ package assignments;
 import java.util.Arrays;
 
 public class DutchFlag {
+//     Given an array nums with n objects colored red, white, or blue, sort
+//them in-place so that objects of the same color are adjacent, with
+//the colors in the order red, white, and blue.
     public static void main(String[] args) {
         System.out.println("1st test : "+Arrays.toString(dutch(new String[]{"red","red","white","blue","blue","white","red","red","white","blue","blue","white"})));
         System.out.println("2st test : "+Arrays.toString(dutch(new String[]{"red","red","red","red","white","blue","blue","white"})));
