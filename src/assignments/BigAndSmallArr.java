@@ -21,4 +21,8 @@ public class BigAndSmallArr {
         }
         return new int[]{max,min};
     }
+
+    public static class Intervels {
+
+    }
 }
