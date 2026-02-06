@@ -12,9 +12,9 @@ Demonstrate how the inner class accesses private members of the outer class.
 
 public class P4_main {
     public static void main(String[] args) {
-        P4_InnerClass in = new P4_InnerClass(); // create the object for the outer class
+        P4_InnerClass bank = new P4_InnerClass(); // create the object for the outer class
 
-        P4_InnerClass.Transactions program = in.new Transactions(); // create the object for the inner class using the outerclass obj.
+        P4_InnerClass.Transactions program = bank.new Transactions(); // create the object for the inner class using the outerclass obj.
 
 
         program.Deposit(2000);

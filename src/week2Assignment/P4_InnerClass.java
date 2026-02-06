@@ -10,7 +10,7 @@ public class P4_InnerClass {
         }
 
         void withdraw(float entry){
-            if(amount>entry){
+            if(amount>entry && entry>0){ //  to check the input is valid positive number
                 amount-=entry;
                 System.out.println("amount withdraw successful and the remaining balance : "+amount);
             }
