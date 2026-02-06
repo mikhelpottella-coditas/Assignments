@@ -11,7 +11,7 @@ import java.util.Arrays;
 * */
 
 public class P5_ValuePassing {
-    public static void main(String[] args) {
+    public static void main(String[] args) { // the print statements are added intentionally to differentiate scope of the value in diff level
         int a = 5; // initialized a primitive variable.
 
         System.out.println("primitive From main before method call: "+a);
