@@ -4,9 +4,9 @@ import java.io.File;
 
 public class BookData {
 
-    static File bookmethod() {
+    static File getBookmethod() {
         try {
-            File bookfile = new File("src/bookfile.txt");
+            File bookfile = new File("src/evaluationWeek2/bookfile.txt");
             return bookfile;
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -8,83 +8,69 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.function.DoubleToIntFunction;
 
-class Book{
-    String id;
-    String name;
-    int quantity;
-    double price;
 
-    public Book(String id, String name, String quantity, String price) {
-        this.id = id;
-        this.name = name;
-        this.quantity =Integer.valueOf(quantity);
-        this.price = Double.valueOf(price);
-    }
-
-}
 
 public class AdminPanel {
-    static void viewBooks(File bookfile, int sortOrder){
-        try {
-
-            Scanner Reader = new Scanner(bookfile);
-            ArrayList<Book> datalist = new ArrayList<>();
-
-            // Traversing File Data
-            while (Reader.hasNextLine()) {
-                String [] book = Reader.next().split(" ");
-                datalist.add(new Book(book[0],book[1], book[2],book[3]));
-                Collections.sort(datalist, Comparator.comparTo(Book o1,Book o2)->o1-o2);
-            }
-            Reader.close();
-        } catch (RuntimeException | FileNotFoundException e) {
-            System.out.println("roor");
-        }
-    }
 
     public static int adminPanel() {
         Scanner sc = new Scanner(System.in);
 
-        File bookfile = BookData.bookmethod(); // to get the file data
+        File bookfile = BookData.getBookmethod(); // to get the file data
 
         System.out.println("admin login success \n\n\n");
         System.out.println("please select your method of operation : \n");
         int entry =1;
-        while (entry != 0) {
+        while (true) {
 
             System.out.println("\n\n1.Add Books  2.Remove Books  3.View Books  4.Find Book  ToExit:0 ");
             entry = sc.nextInt();
+            sc.nextLine();
                 if(entry==0) break;
             switch (entry) {
                 case 1: {
                     System.out.println("please enter the the data you want to add in the following format");
+                    System.out.println("Note: only one book at a time!!!\n");
                     System.out.println("bookId,bookName,bookQuantity,bookPrice");
+                    String oneBook = sc.nextLine();
                     //TODO: here to call a method that check if the total quantity does not exit 200.
-                    try {
-                        FileWriter writer = new FileWriter(bookfile);
-//                        String new
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                    boolean isDataStored = ManpulateBooks.addBook(oneBook);
+                    System.out.println(isDataStored+" hello from case 1");
+
+                    break;
 
                 }
                 case 2: {
                     System.out.println("please enter ID of the book you want to remove ");
+                    String removeId = sc.next();
+                    sc.nextLine();
 
+                    boolean isRemoved = ManpulateBooks.removeBook(removeId);
+                    if (isRemoved) System.out.println("the item removed successfully");
+                    else System.out.println("invalid id");
 
                     //TODO: here we have to call a method that check the avalabity and remove the book
                 break;
                 }
                 case 3: {
                     System.out.println("Please select how ou want to see the order: ");
-                    System.out.println("1.id wise  2.Name wise 3.Price wise");
+                    System.out.println("1.id wise  2.Name wise 3.quantity wise  4.Price wise");
                     int sortOrder = sc.nextInt();
-                    if(sortOrder>3 || sortOrder<1) break;
+                    if(sortOrder>4 || sortOrder<1) break;
                     System.out.println("Here are the list of all book:");
 
-                    viewBooks(bookfile,sortOrder);
+                    ManpulateBooks.viewBooks(sortOrder);
                     break;
+                }
+                case 4:{
+                    System.out.println("tell me by which you want to search the book: ");
+                    System.out.println("1.ByID 2.ByName");
+                    int findBy = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("please enter it");
+                    String clue = sc.nextLine();
+                    ManpulateBooks.findBook(clue,findBy);
                 }
                 default: {
                     System.out.println("Invalid Entry");

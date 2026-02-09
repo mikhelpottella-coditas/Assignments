@@ -1,51 +1,50 @@
-id name quantity price
-B001 The Great Gatsby 25 15.99
-B002 To Kill a Mockingbird 40 12.50
-B003 1984 (George Orwell) 33 14.20
-B004 Pride and Prejudice 50 10.00
-B005 The Hobbit 20 18.50
-B006 Harry Potter & Sorcerer's Stone 60 22.00
-B007 The Catcher in the Rye 15 11.99
-B008 The Hobbit 30 17.00
-B009 Brave New World 22 13.50
-B010 The Chronicles of Narnia 45 25.00
-B011 Crime and Punishment 10 9.99
-B012 The Alchemist 55 16.00
-B013 Moby Dick 8 19.99
-B014 War and Peace 5 29.99
-B015 The Odyssey 18 14.50
-B016 The Kite Runner 35 16.99
-B017 Lord of the Flies 40 11.00
-B018 The Book Thief 28 15.00
-B019 Fahrenheit 451 30 13.00
-B020 The Fault in Our Stars 50 12.99
-B021 Gone Girl 20 14.99
-B022 The Da Vinci Code 40 16.00
-B023 Sapiens: A Brief History 60 22.50
-B024 Educated: A Memoir 25 17.50
-B025 Becoming (Michelle Obama) 30 19.99
-B026 Atomic Habits 70 18.00
-B027 The Silent Patient 45 15.50
-B028 The Song of Achilles 33 16.99
-B029 Normal People 20 14.00
-B030 A Game of Thrones 15 24.99
-B031 Dune (Frank Herbert) 25 20.00
-B032 The Midnight Library 40 17.50
-B033 Where the Crawdads Sing 35 16.00
-B034 The Seven Husbands of Evelyn Hugo 50 15.99
-B035 It Ends with Us 60 14.50
-B036 Project Hail Mary 22 19.99
-B037 The Guest List 18 13.99
-B038 The Vanishing Half 25 16.50
-B039 Klara and the Sun 12 18.00
-B040 The House in the Cerulean Sea 30 15.00
-B041 Circe (Madeline Miller) 28 16.99
-B042 The Night Circus 20 14.99
-B043 Daisy Jones & The Six 35 17.50
-B044 The Four Winds 40 16.00
-B045 The Invisible Life of Addie LaRue 45 18.50
-B046 Anxious People 25 15.00
-B047 The Last Thing He Told Me 30 14.99
-B048 Malibu Rising 20 16.99
-B049 Verity (Colleen Hoover) 55 13.50
-B050 The Psychlogy of Money 65 19.00
+B001,The Great Gatsby,25,15.99
+B002,To Kill a Mockingbird,40,12.5
+B003,1984 (George Orwell),33,14.2
+B004,Pride and Prejudice,50,10.0
+B005,The Hobbit,20,18.5
+B006,Harry Potter & Sorcerer's Stone,60,22.0
+B007,The Catcher in the Rye,15,11.99
+B008,The Hobbit,30,17.0
+B009,Brave New World,22,13.5
+B010,The Chronicles of Narnia,45,25.0
+B011,Crime and Punishment,10,9.99
+B012,The Alchemist,55,16.0
+B013,Moby Dick,8,19.99
+B014,War and Peace,5,29.99
+B015,The Odyssey,18,14.5
+B016,The Kite Runner,35,16.99
+B017,Lord of the Flies,40,11.0
+B018,The Book Thief,28,15.0
+B019,Fahrenheit 451,30,13.0
+B020,The Fault in Our Stars,50,12.99
+B021,Gone Girl,20,14.99
+B022,The Da Vinci Code,40,16.0
+B023,Sapiens: A Brief History,60,22.5
+B024,Educated: A Memoir,25,17.5
+B025,Becoming (Michelle Obama),30,19.99
+B026,Atomic Habits,70,18.0
+B027,The Silent Patient,45,15.5
+B028,The Song of Achilles,33,16.99
+B029,Normal People,20,14.0
+B030,A Game of Thrones,15,24.99
+B031,Dune (Frank Herbert),25,20.0
+B032,The Midnight Library,40,17.5
+B033,Where the Crawdads Sing,35,16.0
+B034,The Seven Husbands of Evelyn Hugo,50,15.99
+B035,It Ends with Us,60,14.5
+B036,Project Hail Mary,22,19.99
+B037,The Guest List,18,13.99
+B038,The Vanishing Half,25,16.5
+B039,Klara and the Sun,12,18.0
+B040,The House in the Cerulean Sea,30,15.0
+B041,Circe (Madeline Miller),28,16.99
+B042,The Night Circus,20,14.99
+B043,Daisy Jones & The Six,35,17.5
+B044,The Four Winds,40,16.0
+B045,The Invisible Life of Addie LaRue,45,18.5
+B046,Anxious People,25,15.0
+B047,The Last Thing He Told Me,30,14.99
+B048,Malibu Rising,20,16.99
+12,dfaf dfa,23,23
+23,fs,23,32
