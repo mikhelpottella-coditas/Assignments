@@ -46,5 +46,6 @@ B045,The Invisible Life of Addie LaRue,45,18.5
 B046,Anxious People,25,15.0
 B047,The Last Thing He Told Me,30,14.99
 B048,Malibu Rising,20,16.99
-12,dfaf dfa,23,23
-23,fs,23,32
+12,dfaf dfa,23,23.0
+23,fs,23,32.0
+B007,The Catcher in the Rye,15,11.99

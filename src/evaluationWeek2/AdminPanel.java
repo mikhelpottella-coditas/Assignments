@@ -10,6 +10,11 @@ import java.util.Comparator;
 import java.util.Scanner;
 import java.util.function.DoubleToIntFunction;
 
+/*
+*   this class is to create a console based interface fo the Admin.
+*
+* */
+
 
 public class AdminPanel {
 
@@ -18,12 +23,12 @@ public class AdminPanel {
 
         File bookfile = BookData.getBookmethod(); // to get the file data
 
-        System.out.println("admin login success \n\n\n");
+        System.out.println("admin login success \n");
         System.out.println("please select your method of operation : \n");
         int entry = 1;
         while (true) {
 
-            System.out.println("\n\n1.Add Books  2.Remove Books  3.View Books  4.Find Book  ToExit:0 ");
+            System.out.println("1.Add Books  2.Remove Books  3.View Books  4.Find Book  ToExit:0 ");
             entry = sc.nextInt();
             sc.nextLine();
             if (entry == 0) break;
@@ -34,7 +39,7 @@ public class AdminPanel {
                     System.out.println("bookId,bookName,bookQuantity,bookPrice");
                     String oneBook = sc.nextLine();
                     //TODO: here to call a method that check if the total quantity does not exit 200.
-                    boolean isDataStored = ManpulateBooks.addBook(oneBook);
+                    boolean isDataStored = AdminFunctions.addBook(oneBook);
                     System.out.println(isDataStored + " hello from case 1");
 
                     break;
@@ -45,7 +50,7 @@ public class AdminPanel {
                     String removeId = sc.next();
                     sc.nextLine();
 
-                    boolean isRemoved = ManpulateBooks.removeBook(removeId);
+                    boolean isRemoved = AdminFunctions.removeBook(removeId);
                     if (isRemoved) System.out.println("the item removed successfully");
                     else System.out.println("invalid id");
 
@@ -59,7 +64,7 @@ public class AdminPanel {
                     if (sortOrder > 4 || sortOrder < 1) break;
                     System.out.println("Here are the list of all book:");
 
-                    ManpulateBooks.viewBooks(sortOrder);
+                    AdminFunctions.viewBooks(sortOrder);
                     break;
                 }
                 case 4: {
@@ -69,7 +74,7 @@ public class AdminPanel {
                     sc.nextLine();
                     System.out.println("please enter it");
                     String clue = sc.nextLine();
-                    ManpulateBooks.findBook(clue, findBy);
+                    AdminFunctions.findBook(clue, findBy);
                     break;
                 }
                 default: {

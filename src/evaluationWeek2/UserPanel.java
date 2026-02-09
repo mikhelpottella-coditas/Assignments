@@ -4,6 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+
+/*
+ *   this class is to create a console based interface fo the User.
+ *
+ * */
+
 public class UserPanel {
     static void userPanel() {
         Scanner sc = new Scanner(System.in);
@@ -23,7 +29,7 @@ public class UserPanel {
                     if (sortOrder > 4 || sortOrder < 1) break;
                     System.out.println("Here are the list of all book:");
 
-                    ManpulateBooks.viewBooks(sortOrder);
+                    AdminFunctions.viewBooks(sortOrder);
                     break;
                 }
                 case 2: {
@@ -52,7 +58,7 @@ public class UserPanel {
                     sc.nextLine();
                     System.out.println("please enter it");
                     String clue = sc.nextLine();
-                    ManpulateBooks.findBook(clue, findBy);
+                    AdminFunctions.findBook(clue, findBy);
                     break;
                 }
                 case 6:{

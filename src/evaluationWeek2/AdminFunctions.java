@@ -1,5 +1,12 @@
 package evaluationWeek2;
 
+
+/*
+ *  this class is to implement methods and functionalities that are required for the admin
+ * */
+
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -25,8 +32,10 @@ class Book{
 
 }
 
-public class ManpulateBooks {
+public class AdminFunctions {
     static File bookfile = BookData.getBookmethod();
+
+
     // this method is used by admin panel to sort the data and to show in console
     static void viewBooks( int sortOrder){ // method for view books for case 3
         try {
@@ -91,13 +100,13 @@ public class ManpulateBooks {
 
     // this method is it add new record to the data
     static boolean addBook(String line){
-        ArrayList<String> fileds = new ArrayList<>(Arrays.asList(line.split(",")));
-   //     if(fileds.size()!=4) return false;
+        String[] fileds = line.split(",");
+        if(fileds.length!=4) return false;
         // TODO: make sure that total capacity is 200
-        if(!(fileds.get(0) instanceof String && fileds.get(1) instanceof String && fileds.get(2).matches("^[0-9]+.") && fileds.get(3).matches("^[0-9]+."))) return false;
+        if( !fileds[2].matches("^[0-9]+$") || !fileds[3].matches("^[0-9]+(\\.[0-9]+)?$")) return false;
 
         try(FileWriter writer = new FileWriter(bookfile, true)) {
-            writer.write(System.lineSeparator() + line);
+            writer.write( line+System.lineSeparator());
             System.out.println("book details added to the data");
         } catch (IOException e) {
             System.out.println("input format is not followed");

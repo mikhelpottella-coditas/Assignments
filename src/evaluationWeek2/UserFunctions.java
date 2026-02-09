@@ -1,14 +1,20 @@
 package evaluationWeek2;
 
+/*
+ *  this class is to implement methods and functionalities that are required for the user
+ * */
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserFunctions {
-    static File bookfile = BookData.getBookmethod();
-    static ArrayList<Book> cart = new ArrayList<>();
+    static File bookfile = BookData.getBookmethod(); // this hold the meta Data of the data file
+    static ArrayList<Book> cart = new ArrayList<>(); // this store the Book objects
 
+    // this method is to add the books to the cart
     static boolean addBooktoCart(String id) {
 
 
@@ -42,6 +48,7 @@ public class UserFunctions {
         return false;
     }
 
+    // this method is to remove books fro the cart
     static boolean removeBookFromCart(String id) {
 
 
@@ -49,13 +56,15 @@ public class UserFunctions {
 
     }
 
+    // this method is to view the cart items to the user
     static void viewCart() {
         if (cart.isEmpty()) System.out.println("Cart is empty");
         else cart.forEach(book -> System.out.printf("%-7s %-40s %-10d %-10.2f%n",
                 book.id, book.name, book.quantity, book.price));
     }
 
-    static boolean checkout() {
+    // this method actually clear the cart in the name of checkout.
+     static boolean checkout() {
         if (cart.isEmpty()) return false;
         cart.clear();
         return true;
