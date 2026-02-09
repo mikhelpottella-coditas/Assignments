@@ -11,7 +11,6 @@ import java.util.Scanner;
 import java.util.function.DoubleToIntFunction;
 
 
-
 public class AdminPanel {
 
     public static int adminPanel() {
@@ -21,13 +20,13 @@ public class AdminPanel {
 
         System.out.println("admin login success \n\n\n");
         System.out.println("please select your method of operation : \n");
-        int entry =1;
+        int entry = 1;
         while (true) {
 
             System.out.println("\n\n1.Add Books  2.Remove Books  3.View Books  4.Find Book  ToExit:0 ");
             entry = sc.nextInt();
             sc.nextLine();
-                if(entry==0) break;
+            if (entry == 0) break;
             switch (entry) {
                 case 1: {
                     System.out.println("please enter the the data you want to add in the following format");
@@ -36,7 +35,7 @@ public class AdminPanel {
                     String oneBook = sc.nextLine();
                     //TODO: here to call a method that check if the total quantity does not exit 200.
                     boolean isDataStored = ManpulateBooks.addBook(oneBook);
-                    System.out.println(isDataStored+" hello from case 1");
+                    System.out.println(isDataStored + " hello from case 1");
 
                     break;
 
@@ -51,26 +50,27 @@ public class AdminPanel {
                     else System.out.println("invalid id");
 
                     //TODO: here we have to call a method that check the avalabity and remove the book
-                break;
+                    break;
                 }
                 case 3: {
-                    System.out.println("Please select how ou want to see the order: ");
+                    System.out.println("Please select how you want to see the order: ");
                     System.out.println("1.id wise  2.Name wise 3.quantity wise  4.Price wise");
                     int sortOrder = sc.nextInt();
-                    if(sortOrder>4 || sortOrder<1) break;
+                    if (sortOrder > 4 || sortOrder < 1) break;
                     System.out.println("Here are the list of all book:");
 
                     ManpulateBooks.viewBooks(sortOrder);
                     break;
                 }
-                case 4:{
+                case 4: {
                     System.out.println("tell me by which you want to search the book: ");
                     System.out.println("1.ByID 2.ByName");
                     int findBy = sc.nextInt();
                     sc.nextLine();
                     System.out.println("please enter it");
                     String clue = sc.nextLine();
-                    ManpulateBooks.findBook(clue,findBy);
+                    ManpulateBooks.findBook(clue, findBy);
+                    break;
                 }
                 default: {
                     System.out.println("Invalid Entry");

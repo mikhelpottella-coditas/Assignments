@@ -110,7 +110,7 @@ public class ManpulateBooks {
     static boolean removeBook(String removeId){
 
         try {
-            System.out.println("hello from viewBook");
+
             Scanner Reader = new Scanner(bookfile);
             ArrayList<Book> datalist = new ArrayList<>();
 
@@ -143,7 +143,7 @@ public class ManpulateBooks {
     // this is the method to find a particular book based on the clue. for case 4 in admin panel
     static boolean findBook(String clue, int searchBy){
         try {
-            System.out.println("hello from viewBook");
+
             Scanner Reader = new Scanner(bookfile);
             ArrayList<Book> datalist = new ArrayList<>();
 
