@@ -50,6 +50,7 @@ public class UserPanel {
                 }
                 case 4: {
                     UserFunctions.viewCart();
+                    break;
                 }
                 case 5:{
                     System.out.println("tell me by which you want to search the book: ");
@@ -65,6 +66,7 @@ public class UserPanel {
                     boolean status = UserFunctions.checkout();
                     if (status) System.out.println("your books are successfully checked out");
                     else System.out.println("your cart is empty. please shop before checkout");
+                    break;
                 }
 
             }

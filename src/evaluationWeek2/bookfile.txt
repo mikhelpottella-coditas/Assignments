@@ -49,3 +49,5 @@ B048,Malibu Rising,20,16.99
 12,dfaf dfa,23,23.0
 23,fs,23,32.0
 B007,The Catcher in the Rye,15,11.99
+b075,rich dad poor dad,10,200
+B074,Jonatant travels,10,200
