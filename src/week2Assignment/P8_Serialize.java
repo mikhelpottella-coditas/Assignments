@@ -53,11 +53,7 @@ public class P8_Serialize {
             System.out.println(testSerialize.password);
             System.out.println(testSerialize.userName);
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
         }
 
