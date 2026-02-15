@@ -24,6 +24,9 @@ public class P3_BankAccount {
         appleMusicThread.start();
         primeThread.start();
 
+        new Thread(() -> {
+            Subscription.deposit();
+        }).start();
     }
 
 }
@@ -53,6 +56,14 @@ class Subscription implements Runnable{
        System.out.println("amount with drawn 200 by " + Thread.currentThread().getName());
        System.out.println("Remaining balance : "+amount+"\n");
        amount-=200;
+    }
+
+    static synchronized void   deposit(){
+        // implemented in such a way so it look like a bank mini statement
+        System.out.println(LocalDateTime.now()); //  used to print the time stamp.
+        System.out.println("amount deposit 200 by " + Thread.currentThread().getName());
+        System.out.println("Current balance : "+amount+"\n");
+        amount+=2000;
     }
 }
 
