@@ -13,6 +13,7 @@ public class P8_Semaphore {
     Semaphore tunnel = new Semaphore(3);
 
     public static void main(String[] args) {
+        System.out.println(Math.random());
 
         P8_Semaphore p8Semaphore = new P8_Semaphore();
 
@@ -30,7 +31,7 @@ public class P8_Semaphore {
             Thread.sleep(2000);
             tunnel.acquire(); // acts as a gate and allows only permitted no.of threads
             System.out.println("inside the tunnel " + Thread.currentThread().getName());
-            Thread.sleep(10000);
+            Thread.sleep((long) (Math.random()*2000));
             tunnel.release(); //  exiting outside so others can come
             System.out.println("out of the tunnel " + Thread.currentThread().getName());
         } catch (InterruptedException e) {

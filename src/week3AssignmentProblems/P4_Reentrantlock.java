@@ -1,5 +1,11 @@
 package week3AssignmentProblems;
 
+//    Problem: Implement a program where two separate objects represent two accounts,
+//        and you need to transfer money between them. Use different locks for each account to
+//        ensure thread safety without causing deadlocks.
+//        Objective: Learn how to manage multiple locks and avoid deadlocks in concurrent
+//        systems.
+
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -55,8 +61,6 @@ class Operation implements Runnable {
     public void run() {
         Account firstLock = (from.getId() < to.getId()) ? from : to;
         Account secondLock = (from.getId() > to.getId()) ? from : to;
-
-
         firstLock.lock.lock();
         try {
             secondLock.lock.lock();
@@ -94,3 +98,15 @@ class Operation implements Runnable {
         }
 
 }
+
+
+// output
+/*
+thread1 transferred 1000 from Account SBI to union
+the new balance in SBI is 4000
+the new balance in union is 9000
+
+thread2 transferred 2000 from Account union to SBI
+the new balance in union is 7000
+the new balance in SBI is 6000
+* */

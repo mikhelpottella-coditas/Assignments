@@ -1,6 +1,10 @@
 package week3AssignmentProblems;
 
-
+//    Problem: Simulate a relay race where each runner (thread) has to wait for the previous
+//    runner to finish before starting. Use CountDownLatch to ensure that the second runner
+//    starts only after the first runner finishes, and so on.
+//    Objective: Learn how to use CountDownLatch to coordinate between threads where
+//    some threads need to wait for others to finish.
 
 
 import java.util.concurrent.CountDownLatch;
@@ -52,4 +56,13 @@ public class P6_waitLatch {
 
 }
 
+
+//output:
+
+/*
+the current runner: runner1 (one after another)
+the current runner: runner2  (one after another)
+the current runner: runner3     (last)
+
+* */
 
