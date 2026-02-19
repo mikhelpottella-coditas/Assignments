@@ -13,14 +13,14 @@ import java.io.*;
 * */
 
 
-class TestSerialize implements Serializable{
-    String userName = "Michael";
+class TestSerialize {
+    String userName = "mike";
     transient String password = "123455555556789";
     String email = "michael@goat.com";
 
 }
 
-public class P8_Serialize {
+public class P8_Serialize implements Serializable{
     public static void main(String[] args) {
 
 
@@ -43,19 +43,19 @@ public class P8_Serialize {
         }
 
         // this below code is to deSerialize the class
-
-        try(FileInputStream fileInputStream = new FileInputStream(fileName)){
-            ObjectInputStream in = new ObjectInputStream(fileInputStream);
-
-            testSerialize = (TestSerialize) in.readObject();
-
-            System.out.println(testSerialize.email);
-            System.out.println(testSerialize.password);
-            System.out.println(testSerialize.userName);
-
-        } catch (ClassNotFoundException | IOException e) {
-            throw new RuntimeException(e);
-        }
+//
+//        try(FileInputStream fileInputStream = new FileInputStream(fileName)){
+//            ObjectInputStream in = new ObjectInputStream(fileInputStream);
+//
+//            testSerialize = (TestSerialize) in.readObject();
+//
+//            System.out.println(testSerialize.email);
+//            System.out.println(testSerialize.password);
+//            System.out.println(testSerialize.userName);
+//
+//        } catch (ClassNotFoundException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }

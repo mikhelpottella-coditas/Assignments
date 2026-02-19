@@ -52,6 +52,7 @@ package HandsOn;
 //}
 
 import java.io.*;
+import java.util.concurrent.locks.Lock;
 
 class Emp implements Serializable {
     private static final long serialVersionUID = 129348938L;
@@ -110,6 +111,7 @@ public class SerializationPractice{
             file.close();
             System.out.println("Object has been deserialized\nData after Deserialization.");
             printData(object);
+            Lock
 
         } catch (IOException ex) {
             System.out.println("IOException is caught");
