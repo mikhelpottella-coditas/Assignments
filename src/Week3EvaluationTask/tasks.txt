@@ -1,0 +1,15 @@
+TASK-101,Requirement Analysis,Review user stories and define technical requirements for the new checkout page.,Done,Sarah K.
+TASK-102,Database Schema Design,Design table structure for user profile updates and create migration script.,Done,Alex P.
+TASK-103,API Endpoint Setup,Develop POST/GET endpoints for the user profile service.,Done,Alex P.
+TASK-104,Frontend UI Development,Implement responsiveness for the checkout page using React.,Done,Sarah K.
+TASK-105,Unit Testing - Backend,Write unit tests for user authentication logic with 90% coverage.,Done,Alex P.
+TASK-106,Code Review - Backend,Review pull request for auth service from Alex.,Done,John D.
+TASK-107,Code Review - Frontend,Review pull request for checkout UI from Sarah.,Done,John D.
+TASK-108,Integration Testing,Validate API endpoints against the frontend application.,In Progress,QA Team
+TASK-109,Bug Fixing - Login,Fix issue where users cannot log in with special characters.,Done,Sarah K.
+TASK-110,Documentation Update,Update API documentation in Swagger/OpenAPI for new endpoints.,Done,Alex P.
+TASK-111,Database Indexing,Add indexes to orders table to improve query performance.,Done,Alex P.
+TASK-112,Security Audit,Scan for SQL injection vulnerabilities and fix identified issues.,In Progress,DevSecOps
+TASK-113,Refactoring Module,Refactor legacy code in the payment processing module for better readability.,Not Started,Sarah K.
+TASK-114,Git Repository Merge,Merge developed features into the staging branch and resolve conflicts.,Not Started,John D.
+TASK-115,Retrospective Meeting,Document performance bottlenecks identified during the sprint.,Done,Team
