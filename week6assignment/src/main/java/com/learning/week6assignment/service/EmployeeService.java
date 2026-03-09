@@ -3,6 +3,8 @@ package com.learning.week6assignment.service;
 import com.learning.week6assignment.DAO.EmployeeDao;
 import com.learning.week6assignment.DTO.EmployeeDto;
 import com.learning.week6assignment.entity.Employees;
+import com.learning.week6assignment.exception.EmailAlreadyExistsException;
+import com.learning.week6assignment.exception.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -27,7 +29,7 @@ public class EmployeeService {
     public void register(EmployeeDto employeeDto) {
 
         if(employeeDao.existsByEmail(employeeDto.getEmail())){
-            throw new RuntimeException("Email already exist");
+            throw new EmailAlreadyExistsException("Email already exist");
         }
 
         Employees employees = new Employees();
@@ -52,7 +54,7 @@ public class EmployeeService {
     }
 
     public EmployeeDto getById(int id) {
-        employees = employeeDao.findById(id).orElseThrow(()->new RuntimeException("Employee not not found"));
+        employees = employeeDao.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not not found"));
         return new EmployeeDto(employees.getId(), employees.getFirstName(), employees.getLastName(), employees.getEmail(), employees.getDepartment(), employees.getSalary());
     }
 
@@ -73,7 +75,7 @@ public class EmployeeService {
 
 
     public void updateEmployee(int id, EmployeeDto employeeDto) {
-        employees = employeeDao.findById(id).orElseThrow(()->new RuntimeException("Employee not found"));
+        employees = employeeDao.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not found"));
 
 //
 
@@ -87,7 +89,7 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(int id) {
-        if(!employeeDao.existsById(id)) throw  new RuntimeException("Employee not found to delete");
+        if(!employeeDao.existsById(id)) throw  new EmployeeNotFoundException("Employee not found to delete");
         else employeeDao.deleteById(id);
     }
 }
