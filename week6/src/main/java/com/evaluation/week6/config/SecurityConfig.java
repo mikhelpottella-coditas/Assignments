@@ -25,29 +25,27 @@ public class SecurityConfig {
         UserDetails swaraj = User.builder()
                 .username("swaraj")
                 .password("{noop}12345")
-                .roles("ADMIN","USER")
+                .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(michael,swaraj);
+        return new InMemoryUserDetailsManager(michael, swaraj);
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.GET, "/emp/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.GET, "/emp/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/emp/*").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/emp/*").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/emp/*").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/emp/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/emp/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/emp/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/emp/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/emp/**").hasRole("ADMIN")
         );
 
         http.httpBasic(Customizer.withDefaults());
 
         http.csrf(csrf -> csrf.disable());
 
-
         return http.build();
-
     }
 }

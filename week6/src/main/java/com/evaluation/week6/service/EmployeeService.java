@@ -1,7 +1,7 @@
 package com.evaluation.week6.service;
 
 import com.evaluation.week6.dao.EmployeeDao;
-import com.evaluation.week6.dto.EmployeeResponceDto;
+import com.evaluation.week6.dto.EmployeeResponseDto;
 import com.evaluation.week6.entity.Employees;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,30 +22,35 @@ public class EmployeeService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public  List<EmployeeResponceDto> getAll() {
+    public  List<EmployeeResponseDto> getAll() {
         List<Employees> employees = employeeDao.findAll();
-        List<EmployeeResponceDto> employeeResponseDtos = new ArrayList<>();
+        List<EmployeeResponseDto> employeeResponseDtos = new ArrayList<>();
         employees.forEach(employee -> {
-            employeeResponseDtos.add(modelMapper.map(employee, EmployeeResponceDto.class));
+            employeeResponseDtos.add(modelMapper.map(employee, EmployeeResponseDto.class));
         });
         return employeeResponseDtos;
     }
 
-    public  EmployeeResponceDto getById(int id) {
+    public EmployeeResponseDto getById(int id) {
        Employees employees =  employeeDao.findById(id).orElseThrow();
-       return modelMapper.map(employees, EmployeeResponceDto.class);
+       return modelMapper.map(employees, EmployeeResponseDto.class);
     }
 
-    public  String addEmployee(EmployeeResponceDto employee) {
+    public  String addEmployee(EmployeeResponseDto employee) {
         Employees employees = modelMapper.map(employee, Employees.class);
+        System.out.println(employees);
         employeeDao.save(employees);
         return "added new employee";
     }
 
-    public String updateEmployee(int id, EmployeeResponceDto employee) {
-        Employees employees = modelMapper.map(employee, Employees.class);
-        employeeDao.updateById(id,employees);
-        return "updated employee";
+    public String updateEmployee(int id, EmployeeResponseDto employee) {
+
+        Employees employees1 = employeeDao.findById(id).get();
+        if(employee.getName()!=null) employees1.setName(employee.getName());
+        if(employee.getDepartment()!=null) employees1.setDepartment(employee.getDepartment());
+        if(employee.getSalary()!=null) employees1.setSalary(employee.getSalary());
+        employeeDao.save(employees1);
+        return "update success";
     }
 
     public String deleteEmployee(int id) {
@@ -53,11 +58,11 @@ public class EmployeeService {
         return "deleted employee";
     }
 
-    public List<EmployeeResponceDto> top3() {
+    public List<EmployeeResponseDto> top3() {
         List<Employees> employees = employeeDao.findTop3ByOrderBySalaryDesc();
-        List<EmployeeResponceDto> employeeResponseDtos = new ArrayList<>();
+        List<EmployeeResponseDto> employeeResponseDtos = new ArrayList<>();
         employees.forEach(employee -> {
-            employeeResponseDtos.add(modelMapper.map(employee, EmployeeResponceDto.class));
+            employeeResponseDtos.add(modelMapper.map(employee, EmployeeResponseDto.class));
         });
         return employeeResponseDtos;
     }

@@ -1,25 +1,26 @@
-package com.evaluation.week6.entity;
+package com.evaluation.week6.dto;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-
-@Entity
-public class Employees {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id ;
-    @Column(nullable = false)
+public class EmployeeResponseDto {
+    Integer id;
     String name;
-    @Email
-    @Column(nullable=false, unique=true)
     String email;
-    @Column(nullable = false)
     String department;
-    @Column(nullable = false)
     Double salary;
 
+
+    public EmployeeResponseDto() {
+    }
+
+    public EmployeeResponseDto(Integer id, String name, String email, String department, Double salary) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.department = department;
+        this.salary = salary;
+    }
+
     public Integer getId() {
+
         return id;
     }
 
@@ -57,17 +58,5 @@ public class Employees {
 
     public void setSalary(Double salary) {
         this.salary = salary;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Employees{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                '}';
     }
 }
