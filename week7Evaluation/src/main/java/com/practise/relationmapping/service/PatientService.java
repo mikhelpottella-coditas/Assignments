@@ -3,11 +3,13 @@ package com.practise.relationmapping.service;
 import com.practise.relationmapping.dao.DoctorDao;
 import com.practise.relationmapping.dao.PatientDao;
 import com.practise.relationmapping.dto.PatientRequestDto;
+import com.practise.relationmapping.dto.PatientResponseDto;
 import com.practise.relationmapping.entity.*;
 import com.practise.relationmapping.exception.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,7 +37,7 @@ public class PatientService {
             inPatient.setPatientType(patientRequestDto.patientType());
             inPatient.setDoctor(doctor);
             inPatient.setNumberOfDaysAdmitted(patientRequestDto.numberOfDaysAdmitted());
-            inPatient.setDailyCharge(patientRequestDto.dailyCharge());
+            inPatient.calculateBill();
 
             patient = inPatient;
         }
@@ -56,8 +58,18 @@ public class PatientService {
     }
 
 
-    public List<Patient> getAllpatients() {
-        return patientDao.findAll();
+    public List<PatientResponseDto> getAllpatients() {
+        List<Patient> patientList = patientDao.findAll();
+        List<PatientResponseDto> patientResponseDtoList = new ArrayList<>();
+
+
+        patientList.forEach(e->{
+            patientResponseDtoList.add(new PatientResponseDto(e.getId(),e.getName(),e.getPatientType(),e.calculateBill()));
+        });
+
+        return patientResponseDtoList;
+
+
     }
 
     public Patient getById(Long id) {

@@ -2,12 +2,16 @@ package com.practise.relationmapping;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication()
 public class RelationMappingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RelationMappingApplication.class, args);
+
+        ApplicationContext applicationContext = SpringApplication.run(RelationMappingApplication.class, args);
+
     }
 
 }

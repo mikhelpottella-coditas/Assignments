@@ -1,6 +1,7 @@
 package com.practise.relationmapping.controller;
 
 import com.practise.relationmapping.dto.PatientRequestDto;
+import com.practise.relationmapping.dto.PatientResponseDto;
 import com.practise.relationmapping.entity.Patient;
 import com.practise.relationmapping.entity.PatientType;
 import com.practise.relationmapping.service.PatientService;
@@ -29,7 +30,7 @@ public class PatientController {
 //    GET Get all patients
 
     @GetMapping("/all")
-    public List<Patient> getAllPatients(){
+    public List<PatientResponseDto> getAllPatients(){
         return patientService.getAllpatients();
     }
 

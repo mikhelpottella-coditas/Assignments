@@ -44,7 +44,6 @@ A doctor can be linked to multiple patients and can author multiple prescription
 POST Register a new doctor
 GET Get all doctors
 GET Get a specific doctor with their linked patients
-GET Get all prescriptions written by a specific doctor
 DELETE Remove a doctor
 
 5. Security

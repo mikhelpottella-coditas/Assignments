@@ -1,6 +1,8 @@
 package com.practise.relationmapping.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Medicine {
 
     @Id
@@ -29,7 +32,7 @@ public class Medicine {
 
     @Column(nullable = false)
     @Min(0)
-    private int stock;
+    private Integer stock;
 
 
     @ManyToMany(mappedBy = "medicines")

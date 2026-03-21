@@ -1,5 +1,7 @@
 package com.practise.relationmapping.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +12,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
