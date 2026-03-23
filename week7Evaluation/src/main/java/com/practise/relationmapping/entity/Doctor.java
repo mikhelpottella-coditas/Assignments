@@ -26,11 +26,11 @@ public class Doctor {
     String name;
 
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor",fetch = FetchType.LAZY)
     @JsonIgnoreProperties("doctor")
     private List<Patient> patients;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor",fetch = FetchType.LAZY)
     @JsonIgnoreProperties("doctor")
     private List<Prescription> prescriptions;
 

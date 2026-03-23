@@ -1,6 +1,7 @@
 package com.practise.relationmapping.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,9 +27,11 @@ public abstract class Patient {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
+    @JsonIgnoreProperties("patient")
     Doctor doctor;
 
     @OneToMany(mappedBy = "patient")
+    @JsonIgnoreProperties("patient")
     List<Prescription> prescription;
 
     public abstract double calculateBill();

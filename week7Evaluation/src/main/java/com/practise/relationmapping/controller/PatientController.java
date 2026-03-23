@@ -37,7 +37,7 @@ public class PatientController {
 
 //    GET Get a specific patient
     @GetMapping("/{id}")
-    public Patient getById(@PathVariable Long id){
+    public PatientResponseDto getById(@PathVariable Long id){
         return patientService.getById(id);
     }
 
@@ -53,5 +53,11 @@ public class PatientController {
         return patientService.getAllPatientByType(patientType);
     }
 
+//    DELETE Discharge a patie
+
+    @DeleteMapping("/delete/{id}")
+    public String deletePatientById(@PathVariable Long id){
+        return patientService.deletePatientById(id);
+    }
 
 }

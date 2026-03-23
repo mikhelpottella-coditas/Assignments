@@ -6,6 +6,7 @@ import com.practise.relationmapping.dto.PatientRequestDto;
 import com.practise.relationmapping.dto.PatientResponseDto;
 import com.practise.relationmapping.entity.*;
 import com.practise.relationmapping.exception.CustomException;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -72,9 +73,10 @@ public class PatientService {
 
     }
 
-    public Patient getById(Long id) {
+    public PatientResponseDto getById(Long id) {
         Patient patient = patientDao.findById(id).orElseThrow(()-> new CustomException(HttpStatus.NOT_FOUND,"patient not found with the given Id"));
-        return patient;
+        PatientResponseDto dto = new PatientResponseDto(patient.getId(),patient.getName(),patient.getPatientType(),patient.calculateBill());
+        return dto;
     }
 
 
@@ -89,5 +91,12 @@ public class PatientService {
         List<Patient> patients = patientDao.findByPatientType(patientType);
         return patients;
 
+    }
+
+    @Transactional
+    public String deletePatientById(Long id){
+        Patient patient = getById(id);
+        patientDao.delete(patient);
+        return "patient discharged successfully";
     }
 }

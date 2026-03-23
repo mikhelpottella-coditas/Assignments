@@ -1,6 +1,7 @@
 package com.practise.relationmapping.controller;
 
 import com.practise.relationmapping.dto.DoctorRequestDto;
+import com.practise.relationmapping.dto.DoctorResponceDto;
 import com.practise.relationmapping.entity.Doctor;
 import com.practise.relationmapping.service.DoctorService;
 import org.springframework.web.bind.annotation.*;
@@ -25,14 +26,14 @@ public class DoctorController {
 
 //    Get all doctors
     @GetMapping("/all")
-    public List<Doctor>  getAllDoctors(){
+    public List<DoctorResponceDto>  getAllDoctors(){
         return doctorService.getAllDoctors();
     }
 
 
 //    Get a specific doctor with their linked patients
     @GetMapping("getById/{id}")
-    public Doctor getDoctorById(@PathVariable Long id){
+    public DoctorResponceDto getDoctorById(@PathVariable Long id){
         return doctorService.getDoctorById(id);
     }
 

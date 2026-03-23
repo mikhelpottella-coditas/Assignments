@@ -18,8 +18,8 @@ POST Register a new patient
     GET Get all patients
 GET Get a specific patient
 GET Get the calculated bill for a patient
-GET Get all INPATIENT or OUTPATIENT patients
-DELETE Discharge a patient
+ntGET Get all INPATIENT or OUTPATIENT patients
+DELETE Discharge a patie
 
 2. Medicine Module
 
