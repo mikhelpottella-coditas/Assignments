@@ -95,7 +95,7 @@ public class PatientService {
 
     @Transactional
     public String deletePatientById(Long id){
-        Patient patient = getById(id);
+        Patient patient = patientDao.findById(id).orElseThrow();
         patientDao.delete(patient);
         return "patient discharged successfully";
     }
