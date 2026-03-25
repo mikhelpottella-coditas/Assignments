@@ -1,0 +1,111 @@
+Index: src/main/java/com/evaluation/week6/controller/EmployeeController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.evaluation.week6.controller;\r\n\r\nimport com.evaluation.week6.dto.EmployeeResponseDto;\r\nimport com.evaluation.week6.service.EmployeeService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\nimport java.util.List;\r\n\r\n@RestController\r\n@RequestMapping(\"/emp\")\r\npublic class EmployeeController {\r\n\r\n    @Autowired\r\n    private  EmployeeService employeeService;\r\n\r\n//    public EmployeeController(EmployeeService employeeService) {\r\n//        this.employeeService = employeeService;\r\n//    }\r\n    //    Retrieve all employees\r\n\r\n    @GetMapping(\"/all\")\r\n    public List<EmployeeResponseDto> getAll() {\r\n        return employeeService.getAll();\r\n    }\r\n\r\n\r\n//Retrieve an employee by id\r\n    @GetMapping(\"/byid/{id}\")\r\n    public EmployeeResponseDto getById(@PathVariable int id) {\r\n        return employeeService.getById(id);\r\n    }\r\n\r\n//Add a new employee\r\n    @PostMapping(\"/addemp\")\r\n    public String addEmployee(@RequestBody EmployeeResponseDto employee) {\r\n        System.out.println(employee);\r\n        return employeeService.addEmployee(employee);\r\n    }\r\n//Update an existing employee\r\n    @PatchMapping(\"/update/{id}\")\r\n    public String updateEmployee(@PathVariable int id, @RequestBody EmployeeResponseDto employee) {\r\n        return  employeeService.updateEmployee(id,employee);\r\n    }\r\n//Delete an employee by id\r\n    @DeleteMapping(\"/deleteemp/{id}\")\r\n    public String deleteEmployee(@PathVariable int id) {\r\n        return  employeeService.deleteEmployee(id);\r\n    }\r\n\r\n\r\n//Retrieve the top 3 highest-paid employees\r\n    @GetMapping(\"/top3\")\r\n    public List<EmployeeResponseDto> getTop3() {\r\n        return employeeService.top3();\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/evaluation/week6/controller/EmployeeController.java b/src/main/java/com/evaluation/week6/controller/EmployeeController.java
+--- a/src/main/java/com/evaluation/week6/controller/EmployeeController.java	(revision 9f647348dba4a023922cfd40d5a581dc9e8dc902)
++++ b/src/main/java/com/evaluation/week6/controller/EmployeeController.java	(date 1773478674944)
+@@ -4,6 +4,9 @@
+ import com.evaluation.week6.service.EmployeeService;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.web.bind.annotation.*;
++import org.springframework.web.servlet.HandlerAdapter;
++import org.springframework.web.servlet.HandlerMapping;
++import tools.jackson.databind.ObjectMapper;
+ 
+ import java.util.List;
+ 
+@@ -11,6 +14,8 @@
+ @RequestMapping("/emp")
+ public class EmployeeController {
+ 
++
++
+     @Autowired
+     private  EmployeeService employeeService;
+ 
+Index: src/main/java/com/evaluation/week6/Week6Application.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.evaluation.week6;\r\n\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\n\r\n@SpringBootApplication\r\npublic class Week6Application {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tSpringApplication.run(Week6Application.class, args);\r\n\t}\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/evaluation/week6/Week6Application.java b/src/main/java/com/evaluation/week6/Week6Application.java
+--- a/src/main/java/com/evaluation/week6/Week6Application.java	(revision 9f647348dba4a023922cfd40d5a581dc9e8dc902)
++++ b/src/main/java/com/evaluation/week6/Week6Application.java	(date 1773515131371)
+@@ -1,9 +1,15 @@
+ package com.evaluation.week6;
+ 
+ import org.springframework.boot.SpringApplication;
++import org.springframework.boot.SpringBootConfiguration;
++import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
++import org.springframework.context.annotation.ComponentScan;
++import org.springframework.context.annotation.Configuration;
+ 
+-@SpringBootApplication
++
++@EnableAutoConfiguration
++@ComponentScan
+ public class Week6Application {
+ 
+ 	public static void main(String[] args) {
+Index: ../evalutaion/src/Evaluationtask.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PACKAGE_NAME;\r\n\r\npublic class Evaluationtask {\r\n}\r\n
+===================================================================
+diff --git a/../evalutaion/src/Evaluationtask.java b/../evalutaion/src/Evaluationtask.java
+--- a/../evalutaion/src/Evaluationtask.java	(revision 9f647348dba4a023922cfd40d5a581dc9e8dc902)
++++ b/../evalutaion/src/Evaluationtask.java	(date 1773404303999)
+@@ -1,4 +1,48 @@
+-package PACKAGE_NAME;
++import java.util.ArrayList;
++import java.util.List;
++
+ 
+ public class Evaluationtask {
++    public static void main() {
++        List<Employee> employees = new ArrayList<>();
++        employees.add(new Employee("asd","IT"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","Dev"));
++        employees.add(new Employee("asd","IT"));
++        employees.add(new Employee("asd","IT"));
++
++        System.out.println(employees.stream().map((e)->e.department).toList());
++
++
++    }
+ }
++
++class Employee {
++    String name;
++    String department;
++
++    public Employee(String name, String department) {
++        this.name = name;
++        this.department = department;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getDepartment() {
++        return department;
++    }
++
++    public void setDepartment(String department) {
++        this.department = department;
++    }
++}
+\ No newline at end of file

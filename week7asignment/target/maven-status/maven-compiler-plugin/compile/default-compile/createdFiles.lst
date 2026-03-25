@@ -1,0 +1,5 @@
+com\practise\week7\entity\MedicalHistory.class
+com\practise\week7\entity\Patient.class
+com\practise\week7\Application.class
+com\practise\week7\controller\PatientController.class
+com\practise\week7\dao\PatientDao.class

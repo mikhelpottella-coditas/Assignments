@@ -1,0 +1,263 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\txsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n\t<modelVersion>4.0.0</modelVersion>\r\n\t<parent>\r\n\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t<artifactId>spring-boot-starter-parent</artifactId>\r\n\t\t<version>4.0.3</version>\r\n\t\t<relativePath/> <!-- lookup parent from repository -->\r\n\t</parent>\r\n\t<groupId>com.evaluation</groupId>\r\n\t<artifactId>week6</artifactId>\r\n\t<version>0.0.1-SNAPSHOT</version>\r\n\t<name>week6</name>\r\n\t<description>week 6 evaluation</description>\r\n\t<url/>\r\n\t<licenses>\r\n\t\t<license/>\r\n\t</licenses>\r\n\t<developers>\r\n\t\t<developer/>\r\n\t</developers>\r\n\t<scm>\r\n\t\t<connection/>\r\n\t\t<developerConnection/>\r\n\t\t<tag/>\r\n\t\t<url/>\r\n\t</scm>\r\n\t<properties>\r\n\t\t<java.version>17</java.version>\r\n\t</properties>\r\n\t<dependencies>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-data-jpa</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-security</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-validation</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-webmvc</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-devtools</artifactId>\r\n\t\t\t<scope>runtime</scope>\r\n\t\t\t<optional>true</optional>\r\n\t\t</dependency>\r\n\r\n\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.modelmapper</groupId>\r\n\t\t\t<artifactId>modelmapper</artifactId>\r\n\t\t\t<version>3.2.0</version>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>com.mysql</groupId>\r\n\t\t\t<artifactId>mysql-connector-j</artifactId>\r\n\t\t\t<scope>runtime</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-data-jpa-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-security-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-validation-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-webmvc-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t</dependencies>\r\n\r\n\t<build>\r\n\t\t<plugins>\r\n\t\t\t<plugin>\r\n\t\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t\t<artifactId>spring-boot-maven-plugin</artifactId>\r\n\t\t\t</plugin>\r\n\t\t</plugins>\r\n\t</build>\r\n\r\n</project>\r\n
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/pom.xml	(date 1773399964754)
+@@ -30,21 +30,22 @@
+ 		<java.version>17</java.version>
+ 	</properties>
+ 	<dependencies>
++
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-data-jpa</artifactId>
++			<artifactId>spring-boot-starter-webmvc</artifactId>
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-security</artifactId>
++			<artifactId>spring-boot-starter-data-jpa</artifactId>
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-validation</artifactId>
++			<artifactId>spring-boot-starter-security</artifactId>
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-webmvc</artifactId>
++			<artifactId>spring-boot-starter-validation</artifactId>
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+Index: src/main/java/com/evaluation/week6/Week6Application.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.evaluation.week6;\r\n\r\nimport org.springframework.boot.SpringApplication;\r\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\r\n\r\n@SpringBootApplication\r\npublic class Week6Application {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tSpringApplication.run(Week6Application.class, args);\r\n\t}\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/evaluation/week6/Week6Application.java b/src/main/java/com/evaluation/week6/Week6Application.java
+--- a/src/main/java/com/evaluation/week6/Week6Application.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/src/main/java/com/evaluation/week6/Week6Application.java	(date 1773402285672)
+@@ -5,9 +5,7 @@
+ 
+ @SpringBootApplication
+ public class Week6Application {
+-
+ 	public static void main(String[] args) {
+ 		SpringApplication.run(Week6Application.class, args);
+ 	}
+-
+ }
+Index: src/test/java/com/evaluation/week6/Week6ApplicationTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.evaluation.week6;\r\n\r\nimport org.junit.jupiter.api.Test;\r\nimport org.springframework.boot.test.context.SpringBootTest;\r\n\r\n@SpringBootTest\r\nclass Week6ApplicationTests {\r\n\r\n\t@Test\r\n\tvoid contextLoads() {\r\n\t}\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/test/java/com/evaluation/week6/Week6ApplicationTests.java b/src/test/java/com/evaluation/week6/Week6ApplicationTests.java
+--- a/src/test/java/com/evaluation/week6/Week6ApplicationTests.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/src/test/java/com/evaluation/week6/Week6ApplicationTests.java	(date 1773401201019)
+@@ -8,6 +8,7 @@
+ 
+ 	@Test
+ 	void contextLoads() {
++
+ 	}
+ 
+ }
+Index: ../src/week3TrainerEvaluation/EvaluationTask.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package week3TrainerEvaluation;\r\n\r\npublic class EvaluationTask {\r\n}\r\n
+===================================================================
+diff --git a/../src/week3TrainerEvaluation/EvaluationTask.java b/../src/week3TrainerEvaluation/EvaluationTask.java
+--- a/../src/week3TrainerEvaluation/EvaluationTask.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/week3TrainerEvaluation/EvaluationTask.java	(date 1772688515594)
+@@ -1,4 +1,33 @@
+ package week3TrainerEvaluation;
+ 
++
++import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.ExecutorService;
++import java.util.concurrent.Executors;
++
+ public class EvaluationTask {
++    public static void main(String[] args) throws InterruptedException {
++
++        ExecutorService executor = Executors.newFixedThreadPool(2);
++
++        CountDownLatch countDownLatch = new CountDownLatch(8);
++
++        for (int i = 1; i <= 8; i++) {
++            int finalI = i;
++            executor.submit(()->{
++                try {
++                    Thread.sleep(4000);
++                    System.out.println("the report "+ finalI +" is done");
++                    countDownLatch.countDown();
++                } catch (InterruptedException e) {
++                    throw new RuntimeException(e);
++                }
++            });
++
++        }
++        executor.shutdown();
++        countDownLatch.await();
++        System.out.println("all reports are generated. DashBoard is ready!");
++
++    }
+ }
+Index: ../src/handsOn/Streams/P18.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package handsOn.Streams;\r\n\r\npublic class P18 {\r\n}\r\n
+===================================================================
+diff --git a/../src/handsOn/Streams/P18.java b/../src/handsOn/Streams/P18.java
+--- a/../src/handsOn/Streams/P18.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/handsOn/Streams/P18.java	(date 1772105892450)
+@@ -1,4 +1,18 @@
+ package handsOn.Streams;
+ 
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.stream.Collectors;
++
+ public class P18 {
+-}
++    static void main() {
++        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
++//        System.out.println( numbers.stream().filter(a->a%2==0).map(a->a*a).toList());
++            String java = "Java";
++        System.out.println( java.chars().mapToObj(c->(char) c).collect(Collectors.groupingBy(
++              c->c,
++              Collectors.counting()
++            )));
++    }
++}
+\ No newline at end of file
+Index: ../src/week3TrainerEvaluation/TextBlock.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package week3TrainerEvaluation;\r\n\r\npublic class TextBlock {\r\n}\r\n
+===================================================================
+diff --git a/../src/week3TrainerEvaluation/TextBlock.java b/../src/week3TrainerEvaluation/TextBlock.java
+--- a/../src/week3TrainerEvaluation/TextBlock.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/week3TrainerEvaluation/TextBlock.java	(date 1772690222797)
+@@ -1,4 +1,18 @@
+ package week3TrainerEvaluation;
+ 
+ public class TextBlock {
++    static void main(String[] args) {
++
++
++        String user = "Michael";
++        String status = "processing";
++        System.out.printf("""
++                ===============================
++                Application log:
++                User: %s
++                status : %s
++                ===============================
++                """,user,status);
++    }
++
+ }
+Index: ../src/week3TrainerEvaluation/Shopping.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package week3TrainerEvaluation;\r\n\r\npublic class Shopping {\r\n}\r\n
+===================================================================
+diff --git a/../src/week3TrainerEvaluation/Shopping.java b/../src/week3TrainerEvaluation/Shopping.java
+--- a/../src/week3TrainerEvaluation/Shopping.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/week3TrainerEvaluation/Shopping.java	(date 1772689396027)
+@@ -1,4 +1,24 @@
+ package week3TrainerEvaluation;
+ 
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Optional;
++
++record Order(int id, String customerName, double amount, String type){}
++
+ public class Shopping {
++    public static void main(String[] args) {
++        List<Order> orders = new ArrayList<>();
++        orders.add(new Order(1,"michael",5000,"online"));
++        orders.add(new Order(2,"sager",1000,"online"));
++        orders.add(new Order(3,"mukesh",7000,"offline"));
++        orders.add(new Order(4,"lufy",500000,"offline"));
++        orders.add(new Order(5,"zoro",500,"online"));
++        orders.add(new Order(6,"sanji",50000,"online"));
++        orders.add(new Order(7,"demon",50,"online"));
++
++        Optional<Double> totalRevenue = orders.stream().map(order -> order.amount()).toList().stream().reduce((a, b)->b+=a);
++        System.out.println(totalRevenue);
++        orders.stream().filter(order -> order.amount()>5000).toList().forEach(order -> System.out.println(order));
++    }
+ }
+Index: ../src/week3TrainerEvaluation/BulkEmail.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package week3TrainerEvaluation;\r\n\r\npublic class BulkEmail {\r\n}\r\n
+===================================================================
+diff --git a/../src/week3TrainerEvaluation/BulkEmail.java b/../src/week3TrainerEvaluation/BulkEmail.java
+--- a/../src/week3TrainerEvaluation/BulkEmail.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/week3TrainerEvaluation/BulkEmail.java	(date 1772690047118)
+@@ -1,4 +1,27 @@
+ package week3TrainerEvaluation;
+ 
+ public class BulkEmail {
++    static void main(String[] args) throws InterruptedException {
++        for (int i = 0; i <= 6000; i++) {
++            int finalI = i;
++//            Thread.ofVirtual().start(()->{
++//                try {
++//                    Thread.sleep(1);
++//                } catch (InterruptedException e) {
++//                    throw new RuntimeException(e);
++//                }
++//                System.out.println("the email no."+ finalI);
++//}).join();
++            new Thread(() -> {
++                try {
++                    Thread.sleep(1);
++                } catch (InterruptedException e) {
++                    throw new RuntimeException(e);
++                }
++                System.out.println("the email no." + finalI);
++            }).start();
++
++
++        }
++    }
+ }
+Index: ../src/handsOn/JdbcConnection.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package handsOn;\r\n\r\npublic class JdbcConnection {\r\n}\r\n
+===================================================================
+diff --git a/../src/handsOn/JdbcConnection.java b/../src/handsOn/JdbcConnection.java
+--- a/../src/handsOn/JdbcConnection.java	(revision 086716cbd16c6b917a4bebcbd751656aef600423)
++++ b/../src/handsOn/JdbcConnection.java	(date 1772729769247)
+@@ -1,4 +1,18 @@
+ package handsOn;
+ 
++import java.sql.*;
++
+ public class JdbcConnection {
++    static void main() throws ClassNotFoundException, SQLException {
++        Class.forName("com.");
++
++        Connection connection = DriverManager.getConnection("localhost:3306/user","root","root");
++
++        Statement statement = connection.createStatement();
++
++        ResultSet rs = statement.executeQuery("select * from user");
++
++        System.out.println(rs);
++
++    }
+ }
