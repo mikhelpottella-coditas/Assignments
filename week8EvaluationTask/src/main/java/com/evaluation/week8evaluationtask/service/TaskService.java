@@ -1,5 +1,6 @@
 package com.evaluation.week8evaluationtask.service;
 
+import com.evaluation.week8evaluationtask.dao.EmployeeDao;
 import com.evaluation.week8evaluationtask.dao.TaskDao;
 import com.evaluation.week8evaluationtask.dto.CreateTaskDto;
 import com.evaluation.week8evaluationtask.entity.Employee;
@@ -10,6 +11,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -53,5 +56,9 @@ public class TaskService {
     public void deleteById(Long id) {
         Task task = getTaskById(id);
         taskDao.delete(task);
+    }
+
+    public List<Task> getByEmpId(Long id) {
+        return taskDao.getByEmployeeId(id);
     }
 }

@@ -21,18 +21,22 @@ public class AuditAop {
     private final LogDao logDao;
 
 
-    @AfterThrowing(pointcut = "execution(* com.evaluation.week8evaluationtask.controller.AssignTaskController.*(..))",
+    @AfterThrowing(pointcut = "execution(* com.evaluation.week8evaluationtask.controller.TaskController.*(..))",
             throwing = "ex" )
     public void logAfterThrowing(JoinPoint joinPoint, Exception ex) {
         Object[] args = joinPoint.getArgs();
         String methodName = joinPoint.getSignature().getName();
 
+        String argsStr = "";
+        for (Object arg : args) {
+            System.out.println(methodName + ": " + arg);
+            argsStr = argsStr + arg;
+        }
 
 
         Log log = new Log();
         log.setMethodName(methodName);
-        String argString = Arrays.toString(args);
-        log.setArguments(argString);
+        log.setArguments(argsStr);
         log.setMessage(ex.getMessage());
         log.setStatus("FAIL");
         logDao.save(log);
@@ -40,17 +44,24 @@ public class AuditAop {
         throw new CustomException(HttpStatus.NOT_ACCEPTABLE,ex.getMessage());
     }
 
-    @AfterReturning(pointcut = "execution(* com.evaluation.week8evaluationtask.controller.AssignTaskController.*(..))",
+    @AfterReturning(pointcut = "execution(* com.evaluation.week8evaluationtask.controller.TaskController.*(..))",
             returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println(">>>>> AOP");
         Object[] args = joinPoint.getArgs();
         String methodName = joinPoint.getSignature().getName();
 
+        String argsStr = "";
+        for (Object arg : args) {
+            System.out.println(methodName + ": " + arg);
+            argsStr = argsStr + arg;
+        }
+
+
         Log log = new Log();
         log.setMethodName(methodName);
-        String argString = Arrays.toString(args);
-        log.setArguments(argString);
-        log.setMessage(methodName+" execution successfully done!!");
+        log.setArguments(argsStr);
+        log.setMessage(methodName+" execution successfully");
         log.setStatus("FAIL");
         logDao.save(log);
 

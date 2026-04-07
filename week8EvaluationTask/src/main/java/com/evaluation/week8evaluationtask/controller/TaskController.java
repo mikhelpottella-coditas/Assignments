@@ -9,11 +9,13 @@ import com.evaluation.week8evaluationtask.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("task")
 @ManagerOnly
-public class AssignTaskController {
+public class TaskController {
 
     private final TaskService taskService;
 
@@ -32,6 +34,11 @@ public class AssignTaskController {
         taskService.deleteById(id);
         return "task deleted successfully";
 
+    }
+
+    @GetMapping("getByEmpId/{id}")
+    public List<Task> getByEmpId(@PathVariable Long id) {
+        return taskService.getByEmpId(id);
     }
 
 }

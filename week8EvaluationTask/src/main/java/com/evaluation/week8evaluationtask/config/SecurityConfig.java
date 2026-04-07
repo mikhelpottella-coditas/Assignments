@@ -33,8 +33,9 @@ public class SecurityConfig {
 
         security.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/register/**").permitAll()
                         .anyRequest()
-                        .permitAll()
+                        .authenticated()
                 )
                 .userDetailsService(userAuthService)
                 .httpBasic(Customizer.withDefaults());

@@ -2,6 +2,7 @@ package com.evaluation.week8evaluationtask.entity;
 
 import com.evaluation.week8evaluationtask.enums.Priority;
 import com.evaluation.week8evaluationtask.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +26,8 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    @OneToOne
+    @ManyToOne
+    @JsonIgnoreProperties("task")
     private Employee employee;
 
 

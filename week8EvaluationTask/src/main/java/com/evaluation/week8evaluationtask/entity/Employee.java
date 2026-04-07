@@ -1,8 +1,11 @@
 package com.evaluation.week8evaluationtask.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -14,7 +17,8 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private UserAuth userAuth;
 
-    @OneToOne(mappedBy = "employee")
-    private Task task;
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnoreProperties("employee")
+    private List<Task> task;
 
 }
