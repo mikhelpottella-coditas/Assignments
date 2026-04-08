@@ -8,11 +8,14 @@ import com.assignment.week8assignment.exception.ExceptionHandle;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.aop.target.LazyInitTargetSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @Aspect
@@ -27,24 +30,24 @@ public class LogRequestAspect {
     }
 
 
-    @After("execution(* com.assignment.week8assignment.controller.TaskController..*(..))")
-    public void logCreateTaskAfter() {
-        System.out.println("Creating Task ended");
-    }
+//    @After("execution(* com.assignment.week8assignment.controller.TaskController..*(..))")
+//    public void logCreateTaskAfter() {
+//        System.out.println("Creating Task ended");
+//    }
 
 
     //    Execution time logging
-    @Around("within(com.assignment.week8assignment.controller..*)")
-    public Object TimeTook(ProceedingJoinPoint jp) throws Throwable {
-
-        long startTime = System.currentTimeMillis();
-        Object returnValue = jp.proceed();
-
-        long endTime = System.currentTimeMillis();
-        System.out.println(jp.getSignature().getName() + " Execution Time Took " + (endTime - startTime) + "ms");
-        return returnValue;
-
-    }
+//    @Around("within(com.assignment.week8assignment.controller..*)")
+//    public Object TimeTook(ProceedingJoinPoint jp) throws Throwable {
+//
+//        long startTime = System.currentTimeMillis();
+//        Object returnValue = jp.proceed();
+//
+//        long endTime = System.currentTimeMillis();
+//        System.out.println(jp.getSignature().getName() + " Execution Time Took " + (endTime - startTime) + "ms");
+//        return returnValue;
+//
+//    }
 
 
     @AfterThrowing(
@@ -56,6 +59,16 @@ public class LogRequestAspect {
         System.out.println("Error: " + ex.getMessage());
     }
 
+    @AfterReturning(
+            pointcut = "execution(* com.assignment.week8assignment.service.*.*(..))",
+            returning = "result"
+    )
+    public List<Task> returnHandling(JoinPoint jp, Object result) {
+        System.out.println("execution completed in method: " + jp.getSignature().getName());
+        System.out.println("return value: " + result);
+        List<Task> taskList = null;
+        return taskList;
+    }
 
     @Autowired
     TaskRepository taskRepository;
